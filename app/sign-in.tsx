@@ -1,4 +1,5 @@
 import {
+  Alert,
   Image,
   ScrollView,
   StyleSheet,
@@ -10,14 +11,21 @@ import { SafeAreaView } from "react-native-safe-area-context";
 
 import images from "@/constants/images";
 import icons from "@/constants/icons";
+import { login } from "@/lib/appwrite";
 
 const SignIn = () => {
-  const handleLogin = () => {};
+  const handleLogin = async () => {
+    const res = await login();
+    if (res) {
+      console.log("Logged in successfully");
+    } else {
+      Alert.alert("Error", "Failed to login");
+    }
+  };
 
   return (
     <SafeAreaView className="h-full bg-white">
       <ScrollView
-        // contentContainerStyle={{ flexGrow: 1 }}
         contentContainerClassName="flex-grow pb-10"
         showsVerticalScrollIndicator={false}
       >
