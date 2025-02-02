@@ -67,7 +67,7 @@ export const getCurrentUser = async () => {
         avatar: userAvatar.toString(),
       };
     }
-    return user;
+    return null;
   } catch (error) {
     console.error(error);
     return null;
